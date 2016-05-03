@@ -65,7 +65,7 @@ module.exports = function (grunt) {
                         capabilities: capabilities,
                         cucumberOpts: cucumberOpts,
                         specs: ['test/features/hw/*.feature'],
-                        baseUrl: grunt.option('appUrl') || ('http://hfedev01.aws.hotwire.com/')
+                        baseUrl: grunt.option('appUrl') || ('http://www.hotwire.com/')
                     }
                 }
             }
