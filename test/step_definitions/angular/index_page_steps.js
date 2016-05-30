@@ -8,7 +8,7 @@ var myStepDefinitionsWrapper = function () {
 
         return Index.get().then(function (thePage) {
             page = thePage;
-            typeof cAssert(page.verifyIsOnAngular(), 'element');
+            return typeof cAssert(page.verifyIsOnAngular(), 'element');
         })
 
     });
@@ -19,8 +19,15 @@ var myStepDefinitionsWrapper = function () {
         //return page.upLinkPanel.Discuss.Blog.click();
 
         return page.upLinkPanel.Discuss.click().then(function () {
-            if (linkName === 'Blog')
-                page.upLinkPanel.Discuss.Blog.click();
+            switch (linkName) {
+                case 'Blog':
+                    page.upLinkPanel.Discuss.click();
+                    return page.upLinkPanel.Discuss.Blog.click();
+                    break;
+                default:
+                    console.log('Please, specify link type.')
+                    return false;
+            }
         });
     });
 
@@ -28,9 +35,6 @@ var myStepDefinitionsWrapper = function () {
     this.Then(/^I move to the linked page$/, function (callback) {
         console.log("----------######-----------");
         //(function () {browser.executeScript('return window.confirm("hey, hey");');}());
-        (function () {
-            browser.pause();
-        }())
     });
 };
 
