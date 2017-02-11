@@ -15,13 +15,21 @@ module.exports = (function () {
 
         page: function () {
             var page = element(by.css('header + [role=main]')); //here is anchor of the index page (or .AngularJS-large)
-            
+
+            function UpLinksPanel(el) {
+                this.Discuss = el.element(by.xpath('//a[text()[contains(.,"Discuss")]]')); //by.css('.learn-link'));
+                this.Discuss.Blog = el.element(by.xpath(BLOG_CSS)); //by.css(BLOG_CSS)
+                //return el;
+            }
+
+
             function verifyIsOnAngular() {
                 return page;
             }
 
 
             return {
+                upLinkPanel: new UpLinksPanel(page),
                 verifyIsOnAngular: verifyIsOnAngular
 
                 //discuss: upLinkPanel.Discuss,
