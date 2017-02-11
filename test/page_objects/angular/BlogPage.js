@@ -31,7 +31,7 @@ module.exports = (function () {
 
 
             return {
-                upLinkPa000nel: new UpLinksPanel(page),
+                upLinkPanel: new UpLinksPanel(page),
                 verifyIsOnAngular: verifyIsOnAng
 
                 //discuss: upLinkPanel.Discuss,
