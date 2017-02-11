@@ -11,5 +11,5 @@ function Header (header) {
 
 
 modules.exports = function() {
-    return
+    
 };
